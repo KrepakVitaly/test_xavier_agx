@@ -491,7 +491,7 @@
 	};
 
 	pcie@14180000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX8B>;
 		reg = <0x00 0x14180000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x38000000 0x0 0x00040000   /* configuration space (256K) */
@@ -542,7 +542,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x38100000 0x0 0x38100000 0x0 0x00100000      /* downstream I/O (1MB) */
@@ -560,7 +559,7 @@
 	};
 
 	pcie@14100000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX1A>;
 		reg = <0x00 0x14100000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x30000000 0x0 0x00040000   /* configuration space (256K) */
@@ -613,7 +612,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x30100000 0x0 0x30100000 0x0 0x00100000      /* downstream I/O (1MB) */
@@ -631,7 +629,7 @@
 	};
 
 	pcie@14120000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX1A>;
 		reg = <0x00 0x14120000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x32000000 0x0 0x00040000   /* configuration space (256K) */
@@ -683,7 +681,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x32100000 0x0 0x32100000 0x0 0x00100000      /* downstream I/O (1MB) */
@@ -701,7 +698,7 @@
 	};
 
 	pcie@14140000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX1A>;
 		reg = <0x00 0x14140000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x34000000 0x0 0x00040000   /* configuration space (256K) */
@@ -753,7 +750,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x34100000 0x0 0x34100000 0x0 0x00100000      /* downstream I/O (1MB) */
@@ -771,7 +767,7 @@
 	};
 
 	pcie@14160000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX4A>;
 		reg = <0x00 0x14160000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x36000000 0x0 0x00040000   /* configuration space (256K) */
@@ -823,7 +819,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x36100000 0x0 0x36100000 0x0 0x00100000      /* downstream I/O (1MB) */
@@ -841,14 +836,14 @@
 	};
 
 	pcie@141a0000 {
-		compatible = "nvidia,tegra194-pcie";
+		compatible = "nvidia,tegra194-pcie", "snps,dw-pcie";
 		power-domains = <&bpmp TEGRA194_POWER_DOMAIN_PCIEX8A>;
 		reg = <0x00 0x141a0000 0x0 0x00020000   /* appl registers (128K)      */
 		       0x00 0x3a000000 0x0 0x00040000   /* configuration space (256K) */
 		       0x00 0x3a040000 0x0 0x00040000>; /* iATU_DMA reg space (256K)  */
 		reg-names = "appl", "config", "atu_dma";
 
-		status = "enabled";
+		status = "disabled";
 
 		#address-cells = <3>;
 		#size-cells = <2>;
@@ -898,7 +893,6 @@
 		nvidia,aspm-cmrt = <0x3C>;
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x3>;
-		nvidia,disable-clock-request;
 
 		bus-range = <0x0 0xff>;
 		ranges = <0x81000000 0x0 0x3a100000 0x0 0x3a100000 0x0 0x00100000      /* downstream I/O (1MB) */

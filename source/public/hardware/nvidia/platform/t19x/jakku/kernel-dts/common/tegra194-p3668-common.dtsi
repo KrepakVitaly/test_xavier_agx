@@ -322,7 +322,6 @@
 		nvidia,disable-aspm-states = <0xf>;
 		nvidia,enable-power-down;
 		nvidia,max-speed = <3>;
-		nvidia,disable-clock-request;
 
 		num-lanes = <1>;
 		phys = <&p2u_11>;
@@ -336,7 +335,6 @@
 		nvidia,disable-aspm-states = <0xf>;
 		nvidia,enable-power-down;
 		nvidia,max-speed = <4>;
-		nvidia,disable-clock-request;
 
 		phys = <&p2u_12>,
 		       <&p2u_13>,

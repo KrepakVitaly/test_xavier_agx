@@ -134,10 +134,10 @@
 	};
 
 	pcie@141a0000 {
-		status = "okay";
+		status = "disabled";
 
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
-		nvidia,disable-aspm-states = <0xc>;
+		nvidia,disable-aspm-states = <0xf>;
 		nvidia,enable-power-down;
 		nvidia,disable-clock-request;
 
@@ -146,8 +146,6 @@
 			 &tegra_main_gpio TEGRA194_MAIN_GPIO(A, 1) GPIO_ACTIVE_LOW     /* 12V */
 		       /*&tegra_main_gpio TEGRA194_MAIN_GPIO(Y, 4) GPIO_ACTIVE_HIGH */ /* I2C */
 			>;
-                nvidia,max-speed = <4>;
-
 
 		phys = <&p2u_12>,
 		       <&p2u_13>,

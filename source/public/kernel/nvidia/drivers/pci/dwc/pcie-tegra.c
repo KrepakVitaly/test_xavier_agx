@@ -2794,13 +2794,6 @@ static int tegra_pcie_dw_host_init(struct pcie_port *pp)
 				  PORT_LOGIC_PL_CHK_REG_CONTROL_STATUS, 4, tmp);
 	}
 
-
-       pr_info("---> Disabling DL Feature\n");
-       dw_pcie_read(pci->dbi_base + pcie->dl_feature_cap, 4, &val);
-       val &= ~DL_FEATURE_EXCHANGE_EN;
-       dw_pcie_write(pci->dbi_base + pcie->dl_feature_cap, 4, val);
-
-
 	if (pcie->is_safety_platform) {
 		/* Disable HW autonomous speed change */
 		val = readl(pci->dbi_base + CFG_LINK_STATUS_CONTROL_2);
