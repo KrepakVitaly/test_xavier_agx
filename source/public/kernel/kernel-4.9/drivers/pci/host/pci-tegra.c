@@ -2194,7 +2194,7 @@ retry:
 		tegra_pcie_port_reset(port);
 	} while (--retries);
 
-	return false;
+	return true;
 }
 
 static void tegra_pcie_apply_sw_war(struct tegra_pcie_port *port,
@@ -2515,7 +2515,7 @@ static void tegra_pcie_check_ports(struct tegra_pcie *pcie)
 	}
 
 	/* Wait for clock to latch (min of 100us) */
-	udelay(100);
+	msleep(100);
 	reset_control_deassert(pcie->pciex_rst);
 	/* at this point in time, there is no end point which would
 	 * take more than 20 msec for root port to detect receiver and
