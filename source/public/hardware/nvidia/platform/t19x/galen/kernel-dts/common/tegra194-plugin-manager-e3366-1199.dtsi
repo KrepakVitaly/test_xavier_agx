@@ -99,7 +99,7 @@
 			override@8 {
 				target = <&{/pcie_ep@141a0000}>;
 				_overlay_ {
-					status = "disabled";
+					status = "okay";
 				};
 			};
 		};
