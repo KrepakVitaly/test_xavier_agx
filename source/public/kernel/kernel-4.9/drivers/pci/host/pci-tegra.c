@@ -2194,7 +2194,7 @@ retry:
 		tegra_pcie_port_reset(port);
 	} while (--retries);
 
-	return false;
+	return true;
 }
 
 static void tegra_pcie_apply_sw_war(struct tegra_pcie_port *port,
@@ -2515,7 +2515,7 @@ static void tegra_pcie_check_ports(struct tegra_pcie *pcie)
 	}
 
 	/* Wait for clock to latch (min of 100us) */
-	udelay(100);
+	msleep(10000);
 	reset_control_deassert(pcie->pciex_rst);
 	/* at this point in time, there is no end point which would
 	 * take more than 20 msec for root port to detect receiver and
@@ -5018,7 +5018,7 @@ int tegra_pcie_pm_control(enum tegra_pcie_pm_opt pm_opt, void *user)
 		val &= ~AFI_PEX_CTRL_REFCLK_EN;
 		afi_writel(port->pcie, val, ctrl);
 
-		msleep(20);
+		msleep(2000);
 		break;
 
 	case TEGRA_PCIE_RESUME_PRE:
@@ -5033,7 +5033,7 @@ int tegra_pcie_pm_control(enum tegra_pcie_pm_opt pm_opt, void *user)
 		msleep(20);
 		val_16 &= ~PCI_BRIDGE_CTL_BUS_RESET;
 		pci_write_config_word(rpdev, PCI_BRIDGE_CONTROL, val_16);
-		msleep(100);
+		msleep(1000);
 		break;
 
 	case TEGRA_PCIE_RESUME_POST:
@@ -5050,7 +5050,7 @@ int tegra_pcie_pm_control(enum tegra_pcie_pm_opt pm_opt, void *user)
 		val |= AFI_PEX_CTRL_REFCLK_EN;
 		afi_writel(port->pcie, val, ctrl);
 
-		msleep(100);
+		msleep(1000);
 
 		/* make sure that link is up before doing anything */
 		do {
@@ -5074,7 +5074,7 @@ int tegra_pcie_pm_control(enum tegra_pcie_pm_opt pm_opt, void *user)
 		pci_read_config_word(epdev, PCI_DEVICE_ID, &val_16);
 		pr_debug("EP device ID = 0x%04X\n", val_16);
 		pr_debug("---> First config read END\n");
-		msleep(100);
+		msleep(1000);
 		break;
 	}
 	return 0;

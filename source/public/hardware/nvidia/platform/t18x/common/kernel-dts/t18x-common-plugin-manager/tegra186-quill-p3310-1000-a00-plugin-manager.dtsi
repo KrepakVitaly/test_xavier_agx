@@ -141,12 +141,15 @@
 				_overlay_ {
 					pci@1,0 {
 						nvidia,num-lanes = <2>;
+						nvidia,disable-clock-request;
 					};
 					pci@2,0 {
 						nvidia,num-lanes = <1>;
+						nvidia,disable-clock-request;
 					};
 					pci@3,0 {
 						nvidia,num-lanes = <1>;
+						nvidia,disable-clock-request;
 					};
 				};
 			};
@@ -158,12 +161,15 @@
 				_overlay_ {
 					pci@1,0 {
 						nvidia,num-lanes = <4>;
+						nvidia,disable-clock-request;
 					};
 					pci@2,0 {
 						nvidia,num-lanes = <0>;
+						nvidia,disable-clock-request;
 					};
 					pci@3,0 {
 						nvidia,num-lanes = <1>;
+						nvidia,disable-clock-request;
 					};
 				};
 			};
