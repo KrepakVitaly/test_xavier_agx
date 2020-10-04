@@ -2850,7 +2850,7 @@ static int tegra_pcie_dw_host_init(struct pcie_port *pp)
 	val &= ~APPL_PINMUX_PEX_RST;
 	writel(val, pcie->appl_base + APPL_PINMUX);
 
-	usleep_range(100, 200);
+	msleep(100); //usleep_range(100, 200);
 
 	/* enable LTSSM */
 	val = readl(pcie->appl_base + APPL_CTRL);
