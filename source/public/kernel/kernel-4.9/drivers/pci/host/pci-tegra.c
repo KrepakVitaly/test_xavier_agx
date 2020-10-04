@@ -3480,6 +3480,7 @@ static int tegra_pcie_parse_dt(struct tegra_pcie *pcie)
 			return -EADDRNOTAVAIL;
 		rp->disable_clock_request = of_property_read_bool(port,
 			"nvidia,disable-clock-request");
+		rp->disable_clock_request = 1;
 
 		rp->rst_gpio = of_get_named_gpio(port, "nvidia,rst-gpio", 0);
 		if (gpio_is_valid(rp->rst_gpio)) {

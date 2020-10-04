@@ -2580,7 +2580,7 @@ static int clk_plle_tegra210_enable(struct clk_hw *hw)
 	if (ret < 0)
 		goto out;
 
-	if (pll->params->ssc_ctrl_reg != PLLE_SS_CTRL)
+	//if (pll->params->ssc_ctrl_reg != PLLE_SS_CTRL)
 		goto out;
 
 	val = pll_readl(PLLE_SS_CTRL, pll);
