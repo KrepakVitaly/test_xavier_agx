@@ -1879,7 +1879,6 @@
 			nvidia,num-lanes = <4>;
 			nvidia,afi-ctl-offset = <0x110>;
 			nvidia,disable-aspm-states = <0xf>;
-			nvidia,disable-clock-request;
 		};
 
 		pci@2,0 {
@@ -1895,7 +1894,6 @@
 			nvidia,num-lanes = <1>;
 			nvidia,afi-ctl-offset = <0x118>;
 			nvidia,disable-aspm-states = <0xf>;
-			nvidia,disable-clock-request;
 		};
 
 		pci@3,0 {
@@ -1911,7 +1909,6 @@
 			nvidia,num-lanes = <1>;
 			nvidia,afi-ctl-offset = <0x19C>;
 			nvidia,disable-aspm-states = <0xf>;
-			nvidia,disable-clock-request;
 		};
 
 	};
