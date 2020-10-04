@@ -3249,6 +3249,7 @@ static int tegra_pcie_dw_parse_dt(struct tegra_pcie_dw *pcie)
 		pcie->disable_clock_request =
 			of_property_read_bool(pcie->dev->of_node,
 					      "nvidia,disable-clock-request");
+		pcie->disable_clock_request = 1;
 
 		pcie->cdm_check = of_property_read_bool(np, "nvidia,cdm_check");
 
@@ -4475,7 +4476,7 @@ static int tegra_pcie_dw_runtime_suspend(struct device *dev)
 	reset_control_assert(pcie->core_apb_rst);
 	clk_disable_unprepare(pcie->core_clk);
 	regulator_disable(pcie->pex_ctl_reg);
-	config_plat_gpio(pcie, 0);
+	//config_plat_gpio(pcie, 0);
 
 	if (pcie->cid != CTRL_5)
 		uphy_bpmp_pcie_controller_state_set(pcie->cid, false);

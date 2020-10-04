@@ -56,6 +56,14 @@
 	#address-cells = <2>;
 	#size-cells = <2>;
 
+	clocks {
+        	clock@plle {
+            	clk-id = <TEGRA194_CLK_PLLE>;
+            	/* disable ssc on PLLE */
+            	pll_freq_table = <38400000 100000000 2 125 24 (-1) (-1) (-1) (-1)>;
+        	};
+    	};
+
 	reserved-memory {
 		#address-cells = <2>;
 		#size-cells = <2>;
