@@ -159,23 +159,19 @@
 	};
 
 	pcie@14180000 {
-		nvidia,disable-clock-request;
 		/delete-property/ nvidia,enable-power-down;
 	};
 
 	pcie@14100000 {
 		nvidia,max-speed = <4>;
-		nvidia,disable-clock-request;
 		/delete-property/ nvidia,enable-power-down;
 	};
 
 	pcie@14140000 {
-		nvidia,disable-clock-request;
 		/delete-property/ nvidia,enable-power-down;
 	};
 
 	pcie@141a0000 {
-		nvidia,disable-clock-request;
 		/delete-property/ nvidia,enable-power-down;
 		/delete-property/ nvidia,plat-gpios;
 	};

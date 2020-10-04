@@ -95,7 +95,7 @@
 
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xf>;
-		
+		nvidia,enable-power-down;
 		nvidia,disable-clock-request;
 
 		phys = <&p2u_2>,
@@ -110,7 +110,7 @@
 
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xc>;
-
+		nvidia,enable-power-down;
 		nvidia,disable-clock-request;
 
 		nvidia,max-speed = <2>;
@@ -126,7 +126,7 @@
 					GPIO_ACTIVE_HIGH>;
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xf>;
-
+		nvidia,enable-power-down;
 		nvidia,disable-clock-request;
 
 		phys = <&p2u_7>;
@@ -138,7 +138,7 @@
 
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xf>;
-
+		nvidia,enable-power-down;
 		nvidia,disable-clock-request;
 
 		nvidia,plat-gpios =
@@ -164,7 +164,6 @@
 		status = "disabled";
 
 		nvidia,disable-aspm-states = <0xf>;
-		nvidia,disable-clock-request;
 
 		vddio-pex-ctl-supply = <&p2888_spmic_sd3>;
 
