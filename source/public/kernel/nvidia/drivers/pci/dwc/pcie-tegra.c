@@ -2794,12 +2794,6 @@ static int tegra_pcie_dw_host_init(struct pcie_port *pp)
 				  PORT_LOGIC_PL_CHK_REG_CONTROL_STATUS, 4, tmp);
 	}
 
-       pr_info("---> Disabling DL Feature\n");
-       dw_pcie_read(pci->dbi_base + pcie->dl_feature_cap, 4, &val);
-       val &= ~DL_FEATURE_EXCHANGE_EN;
-       dw_pcie_write(pci->dbi_base + pcie->dl_feature_cap, 4, val);
-
-
 	if (pcie->is_safety_platform) {
 		/* Disable HW autonomous speed change */
 		val = readl(pci->dbi_base + CFG_LINK_STATUS_CONTROL_2);
@@ -3249,7 +3243,6 @@ static int tegra_pcie_dw_parse_dt(struct tegra_pcie_dw *pcie)
 		pcie->disable_clock_request =
 			of_property_read_bool(pcie->dev->of_node,
 					      "nvidia,disable-clock-request");
-		pcie->disable_clock_request = 1;
 
 		pcie->cdm_check = of_property_read_bool(np, "nvidia,cdm_check");
 
@@ -4476,7 +4469,7 @@ static int tegra_pcie_dw_runtime_suspend(struct device *dev)
 	reset_control_assert(pcie->core_apb_rst);
 	clk_disable_unprepare(pcie->core_clk);
 	regulator_disable(pcie->pex_ctl_reg);
-	//config_plat_gpio(pcie, 0);
+	config_plat_gpio(pcie, 0);
 
 	if (pcie->cid != CTRL_5)
 		uphy_bpmp_pcie_controller_state_set(pcie->cid, false);
