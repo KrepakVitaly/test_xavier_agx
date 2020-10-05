@@ -32,12 +32,13 @@
 	nvidia,fastboot-usb-pid = <0xee1e>;
 	model = "NVIDIA Jetson Xavier NX Developer Kit";
 
+
        clocks {
-               clock@pllnvhs {
-                       clk-id = <TEGRA194_CLK_PLLNVHS>;
-                       /* disable ssc on PLLNVHS */
+            	clock@plle {
+                       clk-id = <TEGRA194_CLK_PLLE>;
+                      /* disable ssc on PLLE */
                        pll_freq_table = <38400000 100000000 2 125 24 (-1) (-1) (-1) (-1)>;
-               };
+		};
        };
 
        clocks {
@@ -350,7 +351,7 @@
 					GPIO_ACTIVE_HIGH>;
 		vddio-pex-ctl-supply = <&p3668_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xf>;
-		nvidia,max-speed = <3>;
+		nvidia,max-speed = <1>;
 		nvidia,disable-clock-request;
 
 		num-lanes = <1>;
@@ -361,9 +362,11 @@
 	pcie@141a0000 {
 		status = "okay";
 
+		//num-lanes = <4>;
+
 		vddio-pex-ctl-supply = <&p3668_spmic_sd3>;
 		nvidia,disable-aspm-states = <0xf>;
-		nvidia,max-speed = <4>;
+		nvidia,max-speed = <1>;
 		nvidia,disable-clock-request;
 
 		phys = <&p2u_12>,
