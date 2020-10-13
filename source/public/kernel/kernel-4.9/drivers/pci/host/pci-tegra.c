@@ -2516,14 +2516,14 @@ static void tegra_pcie_check_ports(struct tegra_pcie *pcie)
 	}
 
 	/* Wait for clock to latch (min of 100us) */
-	msleep(100); //udelay(100);
+	udelay(100);
 	reset_control_deassert(pcie->pciex_rst);
 	/* at this point in time, there is no end point which would
 	 * take more than 20 msec for root port to detect receiver and
 	 * set AUX_TX_RDET_STATUS bit. This would bring link up checking
 	 * time from its current value (around 200ms) to flat 20ms
 	 */
-	msleep(3000); //usleep_range(19000, 21000);
+	usleep_range(19000, 21000);
 	list_for_each_entry_safe(port, tmp, &pcie->ports, list) {
 		if (tegra_pcie_port_check_link(port)) {
 			port->status = 1;
